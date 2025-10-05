@@ -43,16 +43,13 @@ class LargeTextStyles extends AppTextStyles{
 
   TextStyle get bodyMdMedium => const TextStyle(fontSize:14,fontWeight: FontWeight.w500 );
 
-  @override
-  // TODO: implement titleLgBold
+
   TextStyle get titleLgBold => const TextStyle(fontSize: 24,fontWeight: FontWeight.bold);
 
-  @override
-  // TODO: implement titleMdMedium
-  TextStyle get titleMdMedium => throw UnimplementedError();
 
-  @override
-  // TODO: implement titleSmBold
-  TextStyle get titleSmBold => throw UnimplementedError();
+  TextStyle get titleMdMedium => const TextStyle(fontSize: 24,fontWeight: FontWeight.bold);
+
+
+  TextStyle get titleSmBold => const TextStyle(fontSize: 24,fontWeight: FontWeight.bold);
 
 }

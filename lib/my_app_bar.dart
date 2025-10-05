@@ -1,5 +1,8 @@
 import 'package:video01_portfolio_website/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:video01_portfolio_website/extensions.dart';
+
+import 'l10n/app_localizations.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key});
@@ -22,9 +25,15 @@ class MyAppBar extends StatelessWidget {
 class AppLogo extends StatelessWidget {
   const AppLogo({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
-    return Text("Teacher's guide", style: LargeTextStyles().titleLgBold,);
+    // final width=MediaQuery.of(context).size.width;
+    // print(width);
+    return Text(
+      "Teacher's guide",
+       style: context.textStyle.titleSmBold,);
   }
 }
 class AppMenue extends StatelessWidget {
@@ -34,10 +43,13 @@ class AppMenue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text("Home"),
-        Text("Courses"),
-        Text("Blog"),
-        Text("About Me"),
+        Text(AppLocalizations.of(context)!.home),
+        SizedBox(width: 10,),
+        Text(AppLocalizations.of(context)!.courses),
+        SizedBox(width: 10,),
+        Text(AppLocalizations.of(context)!.blog),
+        SizedBox(width: 10,),
+        Text(AppLocalizations.of(context)!.aboutMe),
         
       ],
     );
