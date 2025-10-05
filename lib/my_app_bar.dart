@@ -41,17 +41,20 @@ class AppMenue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(AppLocalizations.of(context)!.home),
-        SizedBox(width: 10,),
-        Text(AppLocalizations.of(context)!.courses),
-        SizedBox(width: 10,),
-        Text(AppLocalizations.of(context)!.blog),
-        SizedBox(width: 10,),
-        Text(AppLocalizations.of(context)!.aboutMe),
-        
-      ],
+    return Container(
+      color: Theme.of(context).appBarTheme.backgroundColor,
+      child: Row(
+        children: [
+          Text(context.texts.home),
+          SizedBox(width: 10,),
+          Text(context.texts.courses),
+          SizedBox(width: 10,),
+          Text(context.texts.blog),
+          SizedBox(width: 10,),
+          Text(context.texts.aboutMe),
+
+        ],
+      ),
     );
   }
 }

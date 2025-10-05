@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video01_portfolio_website/app_text_styles.dart';
+import 'package:video01_portfolio_website/l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 enum FormFactorType{
   mobile,
@@ -41,6 +43,7 @@ extension styledContext on BuildContext{
         }
 
     }
+    AppLocalizations get texts=>AppLocalizations.of(this)??lookupAppLocalizations(Locale("en"));
 
 
 }

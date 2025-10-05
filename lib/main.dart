@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:video01_portfolio_website/home_page.dart';
+import 'package:video01_portfolio_website/styles/app_theem.dart';
 
 import 'l10n/app_localizations.dart';
 
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
       ],
      //locale: Locale("si"),
      home: HomePage(),
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.dark,
     );
   }
 }
