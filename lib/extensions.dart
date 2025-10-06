@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video01_portfolio_website/app_text_styles.dart';
 import 'package:video01_portfolio_website/l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:video01_portfolio_website/styles/app_size.dart';
 
 enum FormFactorType{
   mobile,
@@ -14,6 +15,7 @@ extension styledContext on BuildContext{
     MediaQueryData get mq=>MediaQuery.of(this);
     double get width=>mq.size.width;
     double get height=>mq.size.height;
+    ThemeData get theme=>Theme.of(this);
 
     FormFactorType get formFactor{
           if(width<600) return FormFactorType.mobile;
@@ -44,6 +46,17 @@ extension styledContext on BuildContext{
 
     }
     AppLocalizations get texts=>AppLocalizations.of(this)??lookupAppLocalizations(Locale("en"));
+
+    AppInsets get Insets{
+      switch(formFactor){
+        case FormFactorType.mobile:
+          return SmallInsets();
+        case FormFactorType.tablet:
+        case FormFactorType.desktop:
+          return LargeInsets();
+      }
+
+    }
 
 
 }
