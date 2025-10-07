@@ -6,6 +6,7 @@ import 'package:video01_portfolio_website/styles/app_size.dart';
 import 'package:video01_portfolio_website/widgets/appbar/app_bar_drawar_icon.dart';
 
 import '../../l10n/app_localizations.dart';
+import 'language_switch.dart';
 //
 // class MyAppBar extends StatelessWidget {
 //   const MyAppBar({super.key});
@@ -51,7 +52,7 @@ class MyAppBar extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           // If screen < 600px, show a hamburger menu instead
-          if (context.isMobile) {
+          if (constraints.maxWidth<600) {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeInOut,
@@ -63,7 +64,7 @@ class MyAppBar extends StatelessWidget {
                   Spacer(),
                   Row(
                     children: [
-                      LanguageToggle(),
+                      LanguageSwitch(),
                       const SizedBox(width: 16.0),
                       ThemeToggle(),
                       const SizedBox(width: 16.0),
@@ -89,7 +90,7 @@ class MyAppBar extends StatelessWidget {
                     Spacer(),
                     LargeMenue(),
                     Spacer(),
-                    LanguageToggle(),
+                    LanguageSwitch(),
                     ThemeToggle(),
                   ],
                 ),
@@ -160,20 +161,7 @@ class ThemeToggle extends StatelessWidget {
   }
 }
 
-class LanguageToggle extends StatelessWidget {
-  const LanguageToggle({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton(itemBuilder: (context){
-      return [
-        PopupMenuItem(child: Text("English")),
-        PopupMenuItem(child: Text("Sinhala")),
-
-      ];
-    });
-  }
-}
 
 
 

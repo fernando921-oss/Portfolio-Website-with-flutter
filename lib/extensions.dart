@@ -58,6 +58,8 @@ extension styledContext on BuildContext{
 
     }
 
+    ColorScheme get colorscheme=>theme.colorScheme;
+
 
 }
 
