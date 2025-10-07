@@ -1,5 +1,6 @@
 import 'package:video01_portfolio_website/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:video01_portfolio_website/constants/app_menu_list.dart';
 import 'package:video01_portfolio_website/extensions.dart';
 import 'package:video01_portfolio_website/styles/app_size.dart';
 import 'package:video01_portfolio_website/widgets/appbar/app_bar_drawar_icon.dart';
@@ -124,20 +125,31 @@ class LargeMenue extends StatelessWidget {
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,
       child: Row(
-        children: [
-          Text(context.texts.home),
-          SizedBox(width: 10,),
-          Text(context.texts.courses),
-          SizedBox(width: 10,),
-          Text(context.texts.blog),
-          SizedBox(width: 10,),
-          Text(context.texts.aboutMe),
-
-        ],
+        children:AppMenuList.getiteam(context).map((e)=>LargeAppBarMenuItem(text:e.title , isSelected: true, OnTap: (){})).toList(),
       ),
     );
   }
 }
+
+class LargeAppBarMenuItem extends StatelessWidget {
+  const LargeAppBarMenuItem({super.key, required this.text, required this.isSelected, required this.OnTap});
+
+  final String text;
+  final bool isSelected;
+  final VoidCallback OnTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: OnTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 4),
+        child: Text(text, style: SmallTextStyles().bodyLgMedium,),
+      ),
+    );
+  }
+}
+
 
 class ThemeToggle extends StatelessWidget {
   const ThemeToggle({super.key});
